@@ -5,20 +5,29 @@ with open('response.json') as f:
     data = json.load(f)
 
 deck = []
-
 deck.append(random.choice(data))
-
 print(deck[0]['playerClass'])
 
-another_card = random.choice(data)
-print(another_card['playerClass'])
 
-if another_card['playerClass'] == 'Neutral':
-    deck.append(another_card)
+next_card = random.choice(data)
+print(next_card['playerClass'])
+
+if next_card['playerClass'] == 'Neutral':
+    deck.append(next_card)
     print(len(deck))
-elif another_card['playerClass'] == deck[0]['playerClass']:
-    deck.append(another_card)
+elif next_card['playerClass'] == deck[0]['playerClass']:
+    deck.append(next_card)
     print(len(deck))
-else:
+
+
+next_card = random.choice(data)
+print(next_card['playerClass'])
+
+if next_card['playerClass'] == 'Neutral':
+    deck.append(next_card)
     print(len(deck))
-    pass
+elif next_card['playerClass'] == deck[0]['playerClass']:
+    deck.append(next_card)
+    print(len(deck))
+
+print("Deck length is " + str(len(deck)))
