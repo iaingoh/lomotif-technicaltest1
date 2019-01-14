@@ -4,30 +4,32 @@ import random
 with open('response.json') as f:
     data = json.load(f)
 
+# Append the first card to the deck
+# Index the playerClass
+# The following cards will follow the index
+flag = True
 deck = []
-deck.append(random.choice(data))
-print(deck[0]['playerClass'])
+while flag:
+    card = random.choice(data)
+    if not deck:
+        deck.append(card)
+        playerClass = card['playerClass']
+        continue
+        print(card)
+    elif len(deck) < 30:
+        if card['playerClass'] == playerClass or card['playerClass'] == 'Neutral':
+            deck.append(card)
+    else:
+        flag = False
 
+for card in deck:
+    print(card['playerClass'])
 
-next_card = random.choice(data)
-print(next_card['playerClass'])
-
-if next_card['playerClass'] == 'Neutral':
-    deck.append(next_card)
-    print(len(deck))
-elif next_card['playerClass'] == deck[0]['playerClass']:
-    deck.append(next_card)
-    print(len(deck))
-
-
-next_card = random.choice(data)
-print(next_card['playerClass'])
-
-if next_card['playerClass'] == 'Neutral':
-    deck.append(next_card)
-    print(len(deck))
-elif next_card['playerClass'] == deck[0]['playerClass']:
-    deck.append(next_card)
-    print(len(deck))
-
-print("Deck length is " + str(len(deck)))
+print(len(deck))
+# Append the first card to the deck
+# Index the playerClass
+# The following cards will follow the index
+        
+        
+    
+        
